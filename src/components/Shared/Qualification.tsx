@@ -39,33 +39,9 @@ const Qualification = () => {
 
   return (
     <section className="py-24 px-4 md:px-8 lg:px-16 bg-white relative overflow-hidden">
-      {/* Animated Background Shapes */}
-      <motion.div
-        animate={{
-          y: [0, -30, 0],
-          x: [0, 20, 0],
-          rotate: [0, 180, 360],
-        }}
-        transition={{
-          duration: 20,
-          repeat: Infinity,
-          ease: "linear",
-        }}
-        className="absolute top-10 right-20 w-40 h-40 bg-gradient-to-br from-blue-300 to-purple-300 rounded-full opacity-20 blur-3xl"
-      />
-      <motion.div
-        animate={{
-          y: [0, 40, 0],
-          x: [0, -30, 0],
-          rotate: [360, 180, 0],
-        }}
-        transition={{
-          duration: 25,
-          repeat: Infinity,
-          ease: "linear",
-        }}
-        className="absolute bottom-10 left-20 w-60 h-60 bg-gradient-to-br from-pink-300 to-orange-300 rounded-full opacity-20 blur-3xl"
-      />
+      {/* Background Shapes */}
+      <div className="absolute top-10 right-20 w-40 h-40 bg-gradient-to-br from-blue-300 to-purple-300 rounded-full opacity-20 blur-3xl" />
+      <div className="absolute bottom-10 left-20 w-60 h-60 bg-gradient-to-br from-pink-300 to-orange-300 rounded-full opacity-20 blur-3xl" />
 
       <div className="max-w-5xl mx-auto relative z-10">
         {/* Section Header */}

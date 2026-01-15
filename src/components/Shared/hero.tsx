@@ -19,18 +19,7 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900"
           >
-            Amr Osama{" "}
-            <motion.span
-              animate={{ rotate: [0, 14, -8, 14, -4, 10, 0] }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                repeatDelay: 1,
-              }}
-              className="inline-block"
-            >
-              👋
-            </motion.span>
+            Amr Osama <span className="inline-block">👋</span>
           </motion.h1>
 
           <motion.div
@@ -102,16 +91,7 @@ const Hero = () => {
               className="group px-8 py-4 bg-gray-800 text-white rounded-lg font-medium flex items-center gap-3 hover:bg-gray-700 transition-all shadow-lg hover:shadow-xl cursor-pointer"
             >
               Say Hello
-              <motion.span
-                animate={{ x: [0, 5, 0] }}
-                transition={{
-                  duration: 1.5,
-                  repeat: Infinity,
-                  repeatType: "loop",
-                }}
-              >
-                ✉️
-              </motion.span>
+              <span>✉️</span>
             </motion.button>
           </motion.div>
         </motion.div>
@@ -123,53 +103,20 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
           className="flex justify-center lg:justify-end"
         >
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.3 }}
-            className="relative"
-          >
-            <motion.div
-              animate={{
-                boxShadow: [
-                  "0 0 0 0 rgba(0, 0, 0, 0.1)",
-                  "0 0 0 20px rgba(0, 0, 0, 0)",
-                ],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                repeatType: "loop",
-              }}
-              className="w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-gray-800 shadow-2xl"
-            >
+          <div className="relative">
+            <div className="w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-gray-800 shadow-2xl transition-transform hover:scale-105">
               <img
                 src={My}
                 alt="Profile"
+                loading="eager"
                 className="w-full h-full object-cover"
               />
-            </motion.div>
+            </div>
 
             {/* Floating decorative elements */}
-            <motion.div
-              animate={{ y: [0, -20, 0] }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                repeatType: "loop",
-              }}
-              className="absolute -top-4 -right-4 w-20 h-20 bg-blue-500 rounded-full opacity-20 blur-xl"
-            />
-            <motion.div
-              animate={{ y: [0, 20, 0] }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                repeatType: "loop",
-                delay: 1,
-              }}
-              className="absolute -bottom-4 -left-4 w-24 h-24 bg-purple-500 rounded-full opacity-20 blur-xl"
-            />
-          </motion.div>
+            <div className="absolute -top-4 -right-4 w-20 h-20 bg-blue-500 rounded-full opacity-20 blur-xl" />
+            <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-purple-500 rounded-full opacity-20 blur-xl" />
+          </div>
         </motion.div>
       </div>
     </section>

@@ -92,62 +92,23 @@ const Portfolio = () => {
       id="portfolio"
       className="py-24 px-4 md:px-8 lg:px-16 bg-gradient-to-b from-white via-gray-50 to-white relative overflow-hidden scroll-mt-20"
     >
-      {/* Animated Background Gradient Orbs */}
-      <motion.div
-        animate={{
-          scale: [1, 1.3, 1],
-          x: [0, 50, 0],
-          y: [0, -30, 0],
-        }}
-        transition={{
-          duration: 15,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-        className="absolute top-20 right-10 w-96 h-96 bg-gradient-to-br from-blue-200 via-purple-200 to-pink-200 rounded-full opacity-20 blur-3xl"
-      />
-      <motion.div
-        animate={{
-          scale: [1, 1.4, 1],
-          x: [0, -60, 0],
-          y: [0, 40, 0],
-        }}
-        transition={{
-          duration: 18,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 3,
-        }}
-        className="absolute bottom-20 left-10 w-80 h-80 bg-gradient-to-br from-orange-200 via-pink-200 to-purple-200 rounded-full opacity-20 blur-3xl"
-      />
+      {/* Background Gradient Orbs */}
+      <div className="absolute top-20 right-10 w-96 h-96 bg-gradient-to-br from-blue-200 via-purple-200 to-pink-200 rounded-full opacity-20 blur-3xl" />
+      <div className="absolute bottom-20 left-10 w-80 h-80 bg-gradient-to-br from-orange-200 via-pink-200 to-purple-200 rounded-full opacity-20 blur-3xl" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: -50 }}
+          initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
+          transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <motion.h2
-            initial={{ opacity: 0, scale: 0.7 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.2, type: "spring" }}
-            className="text-4xl md:text-5xl font-bold text-gray-900 mb-3"
-          >
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-3">
             Portfolio
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-gray-600 text-lg"
-          >
-            Most recent works
-          </motion.p>
+          </h2>
+          <p className="text-gray-600 text-lg">Most recent works</p>
         </motion.div>
 
         {/* Filter Buttons */}

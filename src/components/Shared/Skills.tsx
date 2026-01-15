@@ -74,118 +74,68 @@ const Skills = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
           {/* Frontend Developer Card */}
           <motion.div
-            initial={{ opacity: 0, y: 50, rotateY: -10 }}
-            whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
-            whileHover={{ y: -10, scale: 1.02 }}
-            className="bg-white rounded-3xl p-8 shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-300"
+            transition={{ duration: 0.5 }}
+            className="bg-white rounded-3xl p-8 shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
           >
-            <motion.h3
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-2xl font-bold text-gray-900 mb-8 text-center relative"
-            >
+            <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center relative">
               Frontend developer
-              <motion.div
-                initial={{ width: 0 }}
-                whileInView={{ width: "50%" }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-                className="absolute bottom-0 left-1/2 transform -translate-x-1/2 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"
-              />
-            </motion.h3>
+              <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1/2 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full" />
+            </h3>
 
-            <motion.div
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="grid grid-cols-2 gap-6"
-            >
+            <div className="grid grid-cols-2 gap-6">
               {frontendSkills.map((skill, index) => (
-                <motion.div
+                <div
                   key={index}
-                  variants={itemVariants}
-                  whileHover={{ scale: 1.05, x: 5 }}
-                  className="flex items-start gap-3 cursor-pointer group"
+                  className="flex items-start gap-3 cursor-pointer group transition-transform hover:translate-x-1"
                 >
-                  <motion.div
-                    whileHover={{ rotate: 360, scale: 1.2 }}
-                    transition={{ duration: 0.5 }}
-                    className="mt-1"
-                  >
+                  <div className="mt-1">
                     <BiCheck className="text-gray-800 text-xl group-hover:text-blue-600 transition-colors" />
-                  </motion.div>
+                  </div>
                   <div>
                     <h4 className="font-medium text-gray-900 group-hover:text-blue-600 transition-colors">
                       {skill.name}
                     </h4>
                     <p className="text-sm text-gray-500">{skill.level}</p>
                   </div>
-                </motion.div>
+                </div>
               ))}
-            </motion.div>
+            </div>
           </motion.div>
 
           {/* Backend Developer Card */}
           <motion.div
-            initial={{ opacity: 0, y: 50, rotateY: 10 }}
-            whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
-            whileHover={{ y: -10, scale: 1.02 }}
-            className="bg-white rounded-3xl p-8 shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-300"
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="bg-white rounded-3xl p-8 shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
           >
-            <motion.h3
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="text-2xl font-bold text-gray-900 mb-8 text-center relative"
-            >
+            <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center relative">
               Backend Devloper
-              <motion.div
-                initial={{ width: 0 }}
-                whileInView={{ width: "50%" }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.6 }}
-                className="absolute bottom-0 left-1/2 transform -translate-x-1/2 h-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"
-              />
-            </motion.h3>
+              <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1/2 h-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full" />
+            </h3>
 
-            <motion.div
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="grid grid-cols-2 gap-6"
-            >
+            <div className="grid grid-cols-2 gap-6">
               {backendSkills.map((skill, index) => (
-                <motion.div
+                <div
                   key={index}
-                  variants={itemVariants}
-                  whileHover={{ scale: 1.05, x: 5 }}
-                  className="flex items-start gap-3 cursor-pointer group"
+                  className="flex items-start gap-3 cursor-pointer group transition-transform hover:translate-x-1"
                 >
-                  <motion.div
-                    whileHover={{ rotate: 360, scale: 1.2 }}
-                    transition={{ duration: 0.5 }}
-                    className="mt-1"
-                  >
+                  <div className="mt-1">
                     <BiCheck className="text-gray-800 text-xl group-hover:text-purple-600 transition-colors" />
-                  </motion.div>
+                  </div>
                   <div>
                     <h4 className="font-medium text-gray-900 group-hover:text-purple-600 transition-colors">
                       {skill.name}
                     </h4>
                     <p className="text-sm text-gray-500">{skill.level}</p>
                   </div>
-                </motion.div>
+                </div>
               ))}
-            </motion.div>
+            </div>
           </motion.div>
         </div>
       </div>

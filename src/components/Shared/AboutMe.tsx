@@ -52,60 +52,20 @@ const AboutMe = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="flex justify-center"
           >
-            <motion.div
-              whileHover={{ scale: 1.03, rotate: 2 }}
-              transition={{ duration: 0.3 }}
-              className="relative"
-            >
-              <motion.div
-                animate={{
-                  boxShadow: [
-                    "0 10px 30px rgba(0, 0, 0, 0.15)",
-                    "0 15px 40px rgba(0, 0, 0, 0.25)",
-                    "0 10px 30px rgba(0, 0, 0, 0.15)",
-                  ],
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  repeatType: "reverse",
-                }}
-                className="w-full max-w-md h-[300px] sm:h-[400px] md:h-[500px] rounded-3xl overflow-hidden shadow-2xl"
-              >
+            <div className="relative transition-transform hover:scale-[1.02]">
+              <div className="w-full max-w-md h-[300px] sm:h-[400px] md:h-[500px] rounded-3xl overflow-hidden shadow-2xl">
                 <img
                   src={My}
                   alt="About Me"
+                  loading="lazy"
                   className="w-full h-full object-cover"
                 />
-              </motion.div>
+              </div>
 
               {/* Decorative elements */}
-              <motion.div
-                animate={{
-                  scale: [1, 1.2, 1],
-                  opacity: [0.3, 0.5, 0.3],
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  repeatType: "loop",
-                }}
-                className="absolute -top-6 -left-6 w-24 h-24 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full blur-2xl opacity-30"
-              />
-              <motion.div
-                animate={{
-                  scale: [1, 1.3, 1],
-                  opacity: [0.2, 0.4, 0.2],
-                }}
-                transition={{
-                  duration: 5,
-                  repeat: Infinity,
-                  repeatType: "loop",
-                  delay: 1,
-                }}
-                className="absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-br from-pink-400 to-orange-500 rounded-full blur-2xl opacity-20"
-              />
-            </motion.div>
+              <div className="absolute -top-6 -left-6 w-24 h-24 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full blur-2xl opacity-30" />
+              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-br from-pink-400 to-orange-500 rounded-full blur-2xl opacity-20" />
+            </div>
           </motion.div>
 
           {/* Right Side - Content */}
