@@ -1,22 +1,32 @@
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import My from "../../assets/My.JPG";
+import { getTransition } from "../../utils/deviceDetect";
 
 const Hero = () => {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
-    <section className="min-h-screen flex items-start justify-center px-8 pt-36 pb-8 bg-gradient-to-b from-gray-50 to-white">
-      <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <section
+      className="min-h-screen flex items-start justify-center px-8 pt-36 pb-8 bg-gradient-to-b from-gray-50 to-white"
+      style={{ willChange: "auto" }}
+    >
+      <div
+        className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
+        style={{ willChange: "auto" }}
+      >
         {/* Left Side - Text Content */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={getTransition(0.8)}
           className="space-y-6"
+          style={{ willChange: "auto" }}
         >
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={getTransition(0.6, 0.2)}
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900"
           >
             Amr Osama <span className="inline-block">👋</span>
@@ -25,7 +35,7 @@ const Hero = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            transition={getTransition(0.6, 0.3)}
             className="flex items-center gap-4"
           >
             <div className="h-[2px] w-16 bg-gray-800"></div>
@@ -37,7 +47,7 @@ const Hero = () => {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={getTransition(0.6, 0.4)}
             className="text-gray-600 text-lg leading-relaxed max-w-xl"
           >
             I'm a passionate frontend developer based in October, dedicated to
@@ -49,12 +59,12 @@ const Hero = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
+            transition={getTransition(0.6, 0.5)}
             className="flex items-center gap-4"
           >
             <motion.a
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={shouldReduceMotion ? {} : { scale: 1.1 }}
+              whileTap={shouldReduceMotion ? {} : { scale: 0.95 }}
               href="https://www.linkedin.com/in/amr-al-fakharany"
               target="_blank"
               rel="noopener noreferrer"
@@ -63,8 +73,8 @@ const Hero = () => {
               <FaLinkedin size={24} />
             </motion.a>
             <motion.a
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={shouldReduceMotion ? {} : { scale: 1.1 }}
+              whileTap={shouldReduceMotion ? {} : { scale: 0.95 }}
               href="https://github.com/Amr3011"
               target="_blank"
               rel="noopener noreferrer"
@@ -78,11 +88,11 @@ const Hero = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
+            transition={getTransition(0.6, 0.6)}
           >
             <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={shouldReduceMotion ? {} : { scale: 1.05 }}
+              whileTap={shouldReduceMotion ? {} : { scale: 0.95 }}
               onClick={() => {
                 document
                   .getElementById("contact")
@@ -100,15 +110,17 @@ const Hero = () => {
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+          transition={getTransition(0.8, 0.3)}
           className="flex justify-center lg:justify-end"
+          style={{ willChange: "auto" }}
         >
           <div className="relative">
-            <div className="w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-gray-800 shadow-2xl transition-transform hover:scale-105">
+            <div className="w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-gray-800 shadow-2xl hover:scale-105 transition-transform">
               <img
                 src={My}
                 alt="Profile"
-                loading="eager"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover"
               />
             </div>

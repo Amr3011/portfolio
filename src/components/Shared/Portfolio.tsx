@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { useState } from "react";
 import { FiExternalLink } from "react-icons/fi";
 import Foody from "../../assets/Foody.jpeg";
@@ -8,6 +8,7 @@ import Chat from "../../assets/Chat.png";
 import Golden from "../../assets/Golden.png";
 import Task from "../../assets/Task.png";
 import Landing from "../../assets/Landing.png";
+import { getAnimationConfig, getTransition } from "../../utils/deviceDetect";
 
 type Category = "all" | "frontend" | "fullstack";
 
@@ -21,6 +22,8 @@ interface Project {
 
 const Portfolio = () => {
   const [activeFilter, setActiveFilter] = useState<Category>("all");
+  const shouldReduceMotion = useReducedMotion();
+  const animConfig = getAnimationConfig();
 
   const projects: Project[] = [
     {
@@ -125,9 +128,9 @@ const Portfolio = () => {
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
-              whileHover={{ scale: 1.1, y: -3 }}
-              whileTap={{ scale: 0.95 }}
+              transition={getTransition(0.4, 0.4 + index * 0.05)}
+              whileHover={shouldReduceMotion ? {} : { scale: 1.1, y: -3 }}
+              whileTap={shouldReduceMotion ? {} : { scale: 0.95 }}
               onClick={() => setActiveFilter(button.value)}
               className={`px-8 py-3 rounded-full font-semibold text-base transition-all duration-300 ${
                 activeFilter === button.value
@@ -142,36 +145,47 @@ const Portfolio = () => {
 
         {/* Projects Grid */}
         <motion.div
-          layout
+          layout={!shouldReduceMotion}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           {filteredProjects.map((project, index) => (
             <motion.div
               key={project.id}
-              layout
-              initial={{ opacity: 0, scale: 0.8, y: 50 }}
+              layout={!shouldReduceMotion}
+              initial={{
+                opacity: 0,
+                scale: 0.9,
+                y: shouldReduceMotion ? 0 : 30,
+              }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.8, y: 50 }}
+              exit={{ opacity: 0, scale: 0.9, y: shouldReduceMotion ? 0 : 30 }}
               transition={{
-                duration: 0.5,
-                delay: index * 0.1,
+                duration: animConfig.duration || 0.3,
+                delay: shouldReduceMotion ? 0 : index * 0.05,
                 type: "spring",
-                stiffness: 100,
+                stiffness: shouldReduceMotion ? 200 : 100,
               }}
-              whileHover={{
-                y: -15,
-                scale: 1.03,
-                transition: { duration: 0.3 },
-              }}
+              whileHover={
+                shouldReduceMotion
+                  ? {}
+                  : {
+                      y: -15,
+                      scale: 1.03,
+                      transition: { duration: 0.3 },
+                    }
+              }
               className="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100"
+              style={{ willChange: "auto" }}
             >
               {/* Project Image */}
               <div className="relative overflow-hidden h-64">
                 <motion.img
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ duration: 0.5 }}
+                  whileHover={shouldReduceMotion ? {} : { scale: 1.1 }}
+                  transition={getTransition(0.3)}
                   src={project.image}
                   alt={project.title}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover"
                 />
 

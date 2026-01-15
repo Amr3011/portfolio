@@ -131,7 +131,7 @@ const AboutMe = () => {
                   boxShadow: "0 10px 30px rgba(0, 0, 0, 0.2)",
                 }}
                 whileTap={{ scale: 0.95 }}
-                className="group px-8 py-4 bg-gradient-to-r from-gray-800 to-gray-900 text-white rounded-xl font-medium flex items-center gap-3 hover:from-gray-700 hover:to-gray-800 transition-all shadow-lg inline-flex cursor-pointer"
+                className="group px-8 py-4 bg-gradient-to-r from-gray-800 to-gray-900 text-white rounded-xl font-medium items-center gap-3 hover:from-gray-700 hover:to-gray-800 transition-all shadow-lg inline-flex cursor-pointer"
               >
                 Download CV
                 <motion.span
