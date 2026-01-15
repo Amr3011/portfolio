@@ -70,7 +70,7 @@ const AboutMe = () => {
                   repeat: Infinity,
                   repeatType: "reverse",
                 }}
-                className="w-full max-w-md h-[400px] md:h-[500px] rounded-3xl overflow-hidden shadow-2xl"
+                className="w-full max-w-md h-[300px] sm:h-[400px] md:h-[500px] rounded-3xl overflow-hidden shadow-2xl"
               >
                 <img
                   src={My}

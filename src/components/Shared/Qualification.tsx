@@ -10,9 +10,11 @@ const Qualification = () => {
   const educationData = [
     {
       title: "Computer Science",
-      subtitle: "Higher Institute of Computer Science and Information Systems - 6th of October",
+      subtitle:
+        "Higher Institute of Computer Science and Information Systems - 6th of October",
       date: "2022 - 2026",
-    },  {
+    },
+    {
       title: "MERN stack developer",
       subtitle: "DEPI - Egypt",
       date: "JUN 2024 - OCT 2024",
@@ -20,7 +22,6 @@ const Qualification = () => {
   ];
 
   const experienceData = [
-  
     {
       title: "Graduation Project in DEPI",
       subtitle: "DEPI - Egypt",
@@ -101,13 +102,13 @@ const Qualification = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="flex justify-center gap-8 mb-16"
+          className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-8 mb-16"
         >
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setActiveTab("education")}
-            className={`flex items-center gap-3 px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 ${
+            className={`flex items-center justify-center gap-3 px-6 sm:px-8 py-4 rounded-2xl font-semibold text-base sm:text-lg transition-all duration-300 ${
               activeTab === "education"
                 ? "bg-gradient-to-r from-gray-800 to-gray-900 text-white shadow-lg"
                 : "bg-gray-100 text-gray-700 hover:bg-gray-200"
@@ -128,7 +129,7 @@ const Qualification = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setActiveTab("experience")}
-            className={`flex items-center gap-3 px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 ${
+            className={`flex items-center justify-center gap-3 px-6 sm:px-8 py-4 rounded-2xl font-semibold text-base sm:text-lg transition-all duration-300 ${
               activeTab === "experience"
                 ? "bg-gradient-to-r from-gray-800 to-gray-900 text-white shadow-lg"
                 : "bg-gray-100 text-gray-700 hover:bg-gray-200"
@@ -154,7 +155,7 @@ const Qualification = () => {
             whileInView={{ height: "100%" }}
             viewport={{ once: true }}
             transition={{ duration: 1, delay: 0.5 }}
-            className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-gradient-to-b from-gray-300 via-gray-400 to-gray-300 rounded-full"
+            className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-1 bg-gradient-to-b from-gray-300 via-gray-400 to-gray-300 rounded-full"
           />
 
           <div className="space-y-12">
@@ -174,14 +175,14 @@ const Qualification = () => {
                   type: "spring",
                   stiffness: 100,
                 }}
-                className={`flex items-center gap-8 ${
-                  index % 2 === 0 ? "flex-row" : "flex-row-reverse"
+                className={`flex flex-col md:flex-row items-center gap-4 md:gap-8 ${
+                  index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
                 }`}
               >
                 {/* Content Card */}
                 <motion.div
                   whileHover={{ scale: 1.05, y: -5 }}
-                  className="w-5/12 bg-gradient-to-br from-white to-gray-50 rounded-2xl p-6 shadow-xl border border-gray-200 hover:shadow-2xl transition-all duration-300"
+                  className="w-full md:w-5/12 bg-gradient-to-br from-white to-gray-50 rounded-2xl p-6 shadow-xl border border-gray-200 hover:shadow-2xl transition-all duration-300"
                 >
                   <motion.h3
                     initial={{ opacity: 0, y: 10 }}
@@ -226,11 +227,11 @@ const Qualification = () => {
                     type: "spring",
                   }}
                   whileHover={{ scale: 1.5, rotate: 180 }}
-                  className="w-6 h-6 bg-gradient-to-br from-gray-700 to-gray-900 rounded-full border-4 border-white shadow-lg z-10"
+                  className="hidden md:block w-6 h-6 bg-gradient-to-br from-gray-700 to-gray-900 rounded-full border-4 border-white shadow-lg z-10"
                 />
 
                 {/* Empty Space */}
-                <div className="w-5/12" />
+                <div className="hidden md:block w-5/12" />
               </motion.div>
             ))}
           </div>

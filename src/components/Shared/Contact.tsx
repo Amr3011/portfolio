@@ -111,7 +111,7 @@ const Contact = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-2xl md:text-3xl font-bold text-gray-900 mb-8"
+              className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-8"
             >
               Send to me
             </motion.h3>
@@ -194,7 +194,7 @@ const Contact = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.4, type: "spring" }}
           >
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8">
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-8">
               Write me your message
             </h3>
 

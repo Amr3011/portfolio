@@ -17,7 +17,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-5xl md:text-6xl font-bold text-gray-900"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900"
           >
             Amr Osama{" "}
             <motion.span
@@ -140,7 +140,7 @@ const Hero = () => {
                 repeat: Infinity,
                 repeatType: "loop",
               }}
-              className="w-80 h-80 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-gray-800 shadow-2xl"
+              className="w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-gray-800 shadow-2xl"
             >
               <img
                 src={My}
