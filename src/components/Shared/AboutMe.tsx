@@ -163,13 +163,15 @@ const AboutMe = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.6 }}
             >
-              <motion.button
+              <motion.a
+                href="/Amr_cv.pdf"
+                download="Amr_cv.pdf"
                 whileHover={{
                   scale: 1.05,
                   boxShadow: "0 10px 30px rgba(0, 0, 0, 0.2)",
                 }}
                 whileTap={{ scale: 0.95 }}
-                className="group px-8 py-4 bg-gradient-to-r from-gray-800 to-gray-900 text-white rounded-xl font-medium flex items-center gap-3 hover:from-gray-700 hover:to-gray-800 transition-all shadow-lg"
+                className="group px-8 py-4 bg-gradient-to-r from-gray-800 to-gray-900 text-white rounded-xl font-medium flex items-center gap-3 hover:from-gray-700 hover:to-gray-800 transition-all shadow-lg inline-flex cursor-pointer"
               >
                 Download CV
                 <motion.span
@@ -182,7 +184,7 @@ const AboutMe = () => {
                 >
                   <FiDownload size={20} />
                 </motion.span>
-              </motion.button>
+              </motion.a>
             </motion.div>
           </div>
         </div>
