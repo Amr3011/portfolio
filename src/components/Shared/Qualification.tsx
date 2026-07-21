@@ -32,6 +32,11 @@ const Qualification = () => {
       subtitle: "",
       date: "2024 - present",
     },
+    {
+      title: "SkyBright Travel",
+      subtitle: "",
+      date: "JUL 2026 - present",
+    },
   ];
 
   const currentData =
