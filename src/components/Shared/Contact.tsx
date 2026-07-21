@@ -1,31 +1,8 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
 import { HiMail, HiArrowRight } from "react-icons/hi";
 import { FaWhatsapp } from "react-icons/fa";
-import { BiPaperPlane } from "react-icons/bi";
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission
-    console.log(formData);
-  };
-
   const contactMethods = [
     {
       icon: <HiMail size={32} />,
@@ -67,15 +44,15 @@ const Contact = () => {
           <p className="text-gray-600 text-lg">Contact Me</p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
-          {/* Left Side - Contact Methods */}
+        <div className="max-w-2xl mx-auto">
+          {/* Contact Methods */}
           <div className="space-y-6">
             <motion.h3
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: -20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-8"
+              className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center"
             >
               Send to me
             </motion.h3>
@@ -151,112 +128,6 @@ const Contact = () => {
             ))}
           </div>
 
-          {/* Right Side - Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: 60, rotateY: 20 }}
-            whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.4, type: "spring" }}
-          >
-            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-8">
-              Write me your message
-            </h3>
-
-            <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Name Input */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.5 }}
-              >
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Name
-                </label>
-                <motion.input
-                  whileFocus={{ scale: 1.02, borderColor: "#374151" }}
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  placeholder="Enter your name"
-                  required
-                  className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-gray-800 focus:outline-none transition-all duration-300 bg-white"
-                />
-              </motion.div>
-
-              {/* Email Input */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.6 }}
-              >
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Email
-                </label>
-                <motion.input
-                  whileFocus={{ scale: 1.02, borderColor: "#374151" }}
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="Enter your email"
-                  required
-                  className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-gray-800 focus:outline-none transition-all duration-300 bg-white"
-                />
-              </motion.div>
-
-              {/* Message Textarea */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.7 }}
-              >
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Message
-                </label>
-                <motion.textarea
-                  whileFocus={{ scale: 1.02, borderColor: "#374151" }}
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Write your message"
-                  required
-                  rows={6}
-                  className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-gray-800 focus:outline-none transition-all duration-300 resize-none bg-white"
-                />
-              </motion.div>
-
-              {/* Submit Button */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.8 }}
-              >
-                <motion.button
-                  whileHover={{ scale: 1.05, y: -3 }}
-                  whileTap={{ scale: 0.95 }}
-                  type="submit"
-                  className="group w-full md:w-auto px-10 py-4 bg-gradient-to-r from-gray-800 to-gray-900 text-white rounded-xl font-semibold text-lg flex items-center justify-center gap-3 hover:from-gray-700 hover:to-gray-800 transition-all duration-300 shadow-xl hover:shadow-2xl"
-                >
-                  Send Message
-                  <motion.span
-                    animate={{ x: [0, 5, 0], y: [0, -3, 0] }}
-                    transition={{
-                      duration: 1.5,
-                      repeat: Infinity,
-                      repeatType: "loop",
-                    }}
-                  >
-                    <BiPaperPlane size={22} />
-                  </motion.span>
-                </motion.button>
-              </motion.div>
-            </form>
-          </motion.div>
         </div>
       </div>
     </section>
