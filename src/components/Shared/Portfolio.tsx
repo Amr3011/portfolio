@@ -8,6 +8,7 @@ import Chat from "../../assets/Chat.png";
 import Golden from "../../assets/Golden.png";
 import Task from "../../assets/Task.png";
 import Landing from "../../assets/Landing.png";
+import Shekh from "../../assets/shekh.png";
 import { getAnimationConfig, getTransition } from "../../utils/deviceDetect";
 
 type Category = "all" | "frontend" | "fullstack";
@@ -28,61 +29,69 @@ const Portfolio = () => {
   const projects: Project[] = [
     {
       id: 1,
+      title: "Sheikh Official Platform – Sermons, Lectures & Fatwas",
+      category: "fullstack",
+      image: Shekh,
+      link: "#",
+    },
+    {
+      id: 2,
       title: "Foody – Food, Chefs & Restaurants Platform",
       category: "frontend",
       image: Foody,
       link: "#",
     },
     {
-      id: 2,
+      id: 3,
       title: "Ashri – Fashion Manufacturing & Sales Platform",
       category: "fullstack",
       image: Ashri,
       link: "#",
     },
     {
-      id: 3,
+      id: 4,
       title: "Excursions – Travel Planning Platform",
       category: "fullstack",
       image: excursions,
       link: "#",
     },
     {
-      id: 4,
+      id: 5,
       title: "Chat – Real-time Chat Application",
       category: "fullstack",
       image: Chat,
       link: "#",
     },
     {
-      id: 5,
+      id: 6,
       title: "Golden – Development Company Platform",
       category: "frontend",
       image: Golden,
       link: "#",
     },
     {
-      id: 6,
+      id: 7,
       title: "Task –  Management Application",
       category: "frontend",
       image: Task,
       link: "#",
     },
     {
-      id: 7,
+      id: 8,
       title: "Landing Page",
       category: "frontend",
       image: Landing,
       link: "#",
     },
+
   ];
 
   const filteredProjects =
     activeFilter === "all"
       ? projects
       : activeFilter === "frontend"
-      ? projects.filter((project) => project.category === "frontend")
-      : projects.filter((project) => project.category === activeFilter);
+        ? projects.filter((project) => project.category === "frontend")
+        : projects.filter((project) => project.category === activeFilter);
 
   const filterButtons: { label: string; value: Category }[] = [
     { label: "All", value: "all" },
@@ -132,11 +141,10 @@ const Portfolio = () => {
               whileHover={shouldReduceMotion ? {} : { scale: 1.1, y: -3 }}
               whileTap={shouldReduceMotion ? {} : { scale: 0.95 }}
               onClick={() => setActiveFilter(button.value)}
-              className={`px-8 py-3 rounded-full font-semibold text-base transition-all duration-300 ${
-                activeFilter === button.value
+              className={`px-8 py-3 rounded-full font-semibold text-base transition-all duration-300 ${activeFilter === button.value
                   ? "bg-gradient-to-r from-gray-800 to-gray-900 text-white shadow-xl"
                   : "bg-white text-gray-700 hover:bg-gray-100 border-2 border-gray-200"
-              }`}
+                }`}
             >
               {button.label}
             </motion.button>
@@ -169,10 +177,10 @@ const Portfolio = () => {
                 shouldReduceMotion
                   ? {}
                   : {
-                      y: -15,
-                      scale: 1.03,
-                      transition: { duration: 0.3 },
-                    }
+                    y: -15,
+                    scale: 1.03,
+                    transition: { duration: 0.3 },
+                  }
               }
               className="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100"
               style={{ willChange: "auto" }}
